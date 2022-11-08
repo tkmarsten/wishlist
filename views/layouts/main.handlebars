@@ -10,14 +10,14 @@
 <body>
     <nav>
         <a href="/">Home</a>
-        <a href="/views/profile.handlebars">View Profile</a>
-        <a href="/views/allusers.handlebars">View All Users</a>
-        <a href="/views/allusers.handlebars">Search for User</a>
+        <a href="/profile">View Profile</a>
+        <!-- <a href="/views/allusers.handlebars">View All Users</a>
+        <a href="/views/allusers.handlebars">Search for User</a> -->
         {{!-- <a href="">Saved Users</a> --}}
-         {{#if logged_in}}
+        {{#if logged_in}}
         <button id ="logoutBtn">Logout</button>
         {{else}}
-        <a href="/views/login.handlebars">Login</a>
+        <a href="/login">Login</a>
         {{/if}}
     </nav>
 
