@@ -1,0 +1,13 @@
+:root {
+    --primary: #d90429;
+    --secondary: #003e1f;
+    --tertiary: #73ba9b;
+    --quaternary: #d5f2e3;
+}
+
+body {
+    background: var(--tertiary);
+    color: var(--secondary);
+    font-family: 'Mountains of Christmas';
+    font-size: 22px;
+}
