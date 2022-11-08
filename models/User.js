@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class User extends Model { }
 
+
 User.init(
   {
     id: {
@@ -43,3 +44,4 @@ User.init(
 )
 
 module.exports = User
+
