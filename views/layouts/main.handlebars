@@ -8,7 +8,18 @@
     <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
-    <nav>this is the nav bar</nav>
+    <nav>
+        <a href="/views/layouts/main.handlebars">Home</a>
+        <a href="/views/profile.handlebars">View Profile</a>
+        <a href="/views/allusers.handlebars">View All Users</a>
+        <a href="/views/allusers.handlebars">Search for User</a>
+        {{!-- <a href="">Saved Users</a> --}}
+         {{#if logged_in}}
+        <button id ="logoutBtn">Logout</button>
+        {{else}}
+        <a href="/views/login.handlebars">Login</a>
+        {{/if}}
+    </nav>
 
     <h1>Welcome to the wishlist site!</h1>
 

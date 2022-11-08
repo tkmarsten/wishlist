@@ -41,3 +41,5 @@ Item.init(
     modelName: 'item'
   }
 )
+
+module.exports = Item
