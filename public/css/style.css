@@ -10,4 +10,5 @@ body {
     color: var(--secondary);
     font-family: 'Mountains of Christmas';
     font-size: 22px;
+    text-align: center;
 }
