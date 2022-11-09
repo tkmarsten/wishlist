@@ -23,9 +23,8 @@ router.post('/', async (req, res) => {
   // Login
 router.post('/login', async (req, res) => {
     try {
-      const dbUserData = await User.findOne({       
-      });
-  
+      const dbUserData = await User.findOne({ where: {username:req.body.username}});       
+    
       if (!dbUserData) {
         res
           .status(400)
@@ -41,21 +40,18 @@ router.post('/login', async (req, res) => {
           .json({ message: 'Incorrect username or password. Please try again.' });
         return;
       }
-  
+  // Session variable
       req.session.save(() => {
         req.session.loggedIn = true;
-        console.log(
-          'user-routes.js ~ req.session.save ~ req.session.cookie',
-          req.session.cookie
-        );
+        req.session.cookie
+      
   
         res
           .status(200)
           .json({ user: dbUserData, message: 'You are now logged in.' });
       });
     } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
+      res.status(400).json(err);
     }
   });
   
