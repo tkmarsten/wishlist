@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Item extends Model { }
+class Wishlist extends Model { }
 
-Item.init(
+Wishlist.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,20 +15,10 @@ Item.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    link: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    quantity: {
-      type: DataTypes.INTEGER,
-      validate: {
-        isNumeric: true
-      }
-    },
-    wishlist_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'wishlist',
+        model: 'user',
         key: 'id'
       }
     }
@@ -38,8 +28,8 @@ Item.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'item'
+    modelName: 'wishlist'
   }
 )
 
-module.exports = Item
+module.exports = Wishlist
