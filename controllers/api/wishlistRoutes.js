@@ -18,19 +18,6 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:id', async (req, res) => {
-  try {
-    const userData = await Wishlist.findAll({
-      where: {
-        user_id: req.params.id
-      },
-      include: [Item]
-    })
-    res.status(200).json(userData)
-  } catch (err) {
-    res.status(500).json(err)
-  }
-})
 
 router.get("/:id",(req,res)=>{
   Wishlist.findByPk(req.params.id,{
