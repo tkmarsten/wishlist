@@ -2,16 +2,31 @@ const router = require('express').Router();
 const { User, Wishlist, Item } = require('../../models');
 const bcrypt = require("bcrypt")
 
-router.get('/', async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      include: [{ model: Wishlist }]
-    })
-    res.status(200).json(userData)
-  } catch (err) {
-    res.status(500).json(err)
-  }
+// router.get('/', async (req, res) => {
+//   try {
+//     const userData = await User.findAll({
+//       include: [Wishlist]
+//     }).then(userData)
+//     res.status(200).json(userData)
+//   } catch (err) {
+//     res.status(500).json(err)
+//   }
+// })
+
+router.get("/",(req,res)=>{
+  User.findByPk().then(users=>{
+      const usersHbsData = users.map(user=>user.get({plain:true}))
+      console.log(users);
+      console.log("==============")
+      console.log(usersHbsData)
+
+      res.render("profile",{
+          users:usersHbsData,
+          loggedIn:req.session.loggedIn
+      })
+  })
 })
+
 
 router.post('/', async (req, res) => {
   try {
@@ -21,7 +36,7 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.user_id = 3
+      req.session.user_id = dbUserData.id
       req.session.loggedIn = true;
       res.status(200).json(dbUserData);
     });
@@ -55,7 +70,7 @@ router.post('/login', async (req, res) => {
     }
     // Session variable
     req.session.save(() => {
-      req.session.user_id = 3
+      req.session.user_id = dbUserData.id
       req.session.loggedIn = true;
       req.session.cookie
       res

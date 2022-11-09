@@ -13,13 +13,8 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const wishlist of wishlistData) {
-    await Wishlist.create({
-      ...wishlist,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
-
+  await Wishlist.bulkCreate(wishlistData);
+  
   await Item.bulkCreate(itemData)
 
   process.exit(0);

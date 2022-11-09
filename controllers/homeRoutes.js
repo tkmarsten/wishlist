@@ -1,17 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const { Wishlist, Item, User } = require('../models');
 
-// GET all wishlist items
+// GET homepage
 router.get('/', async (req, res) => {
-  // Item.findAll().then(wishlists => {
-  //   const wishlistData = wishlists.map(wishlist => wishlist.get({ plain: true }))
-  //   console.log(wishlistData);
-
-  //   res.render("home", {
-  //     wishlists: wishlistData,
-  //     loggedin: req.session.loggedin
-  //   })
-  // })
   res.render('home')
 })
 
@@ -20,26 +12,26 @@ router.get("/sessions", (req, res) => {
 })
 
 router.get("/login", (req, res) => {
-  // if (req.session.loggedin) {
-  //   return res.redirect('/profile')
-  // }
+  if (req.session.loggedIn) {
+    return res.redirect('/profile')
+  }
   res.render('login')
 })
 
 router.get("/profile", (req, res) => {
-  // if (!req.session.loggedin) {
-  //   return res.redirect("/login")
-  // }
-  // User.findByPk(req.session.user_id, {
-  //   include: [Item]
-  // }).then(userData => {
-  //   const hbsData = userData.toJSON();
-  //   console.log(hbsData)
-  //   hbsData.loggedin = req.session.loggedin
-  //   res.render("profile", hbsData)
-  // })
-
-  res.render('profile')
+  if (!req.session.loggedIn) {
+    return res.redirect("/login")
+  }
+  User.findByPk(req.session.user_id, 
+    {
+    include: [Wishlist]
+  }
+  ).then(userData => {
+    const hbsData = userData.toJSON();
+    console.log(hbsData)
+    hbsData.loggedIn = req.session.loggedIn
+    res.render("profile", hbsData)
+  })
 })
 
 module.exports = router
