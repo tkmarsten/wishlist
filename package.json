@@ -2,10 +2,11 @@
   "name": "team-7-wishlist",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seeds": "node seeds/seed.js"
   },
   "repository": {
     "type": "git",

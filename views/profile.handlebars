@@ -1,5 +1,6 @@
 <h1>Welcome to your Profile Page!</h1>
 <h2>My Wish List</h2>
+
 {{#each listitems}}
     <div class="card">
         {{!-- wish list item info --}}
@@ -16,5 +17,6 @@
     <input type="number" name="quanity" id="quanity" placeholder="Quanity">
     <button>Add</button>
 </form>
+{{/each}}
 
-    <script src="/public/js/profile.js"></script>
+<script src="/public/js/profile.js"></script>
