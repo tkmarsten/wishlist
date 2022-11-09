@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Wishlist, Item } = require('../../models');
+const bcrypt = require("bcrypt")
 
 router.get('/', async (req, res) => {
   try {
@@ -58,7 +59,7 @@ router.post('/login', async (req, res) => {
   
         res
           .status(200)
-          .json({ user: dbUserData, message: 'You are now logged in.' });
+          .json({ username: dbUserData, message: 'You are now logged in.' });
       });
     } catch (err) {
       res.status(400).json(err);
