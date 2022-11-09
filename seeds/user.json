@@ -1,27 +1,26 @@
 [
-    {
-        "username": "user1",
-        "password": "password",
-        "first_name": "Machiko",
-        "last_name": "Carroll"
-      },
-      {
-        "username": "user2",
-        "password": "password",
-        "first_name": "Artem",      
-        "last_name": "Khomenko"
-      },
-      {
-        "username": "user3",
-        "password": "password",
-        "first_name": "Tiarnan",      
-        "last_name": "Marsten"
-      },
-      {
-        "username": "user4",
-        "password": "password",
-        "first_name": "Felisha",      
-        "last_name": "Yu-Macias"
-      }
+  {
+    "username": "user1",
+    "password": "password",
+    "first_name": "Machiko",
+    "last_name": "Carroll"
+  },
+  {
+    "username": "user2",
+    "password": "password",
+    "first_name": "Artem",
+    "last_name": "Khomenko"
+  },
+  {
+    "username": "user3",
+    "password": "password",
+    "first_name": "Tiarnan",
+    "last_name": "Marsten"
+  },
+  {
+    "username": "user4",
+    "password": "password",
+    "first_name": "Felisha",
+    "last_name": "Yu-Macias"
+  }
 ]
-
