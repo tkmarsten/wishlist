@@ -3,7 +3,7 @@ loginForm.addEventListener("submit",e=>{
     e.preventDefault();
     console.log('PREVENTED DEFAULT!')
     const userObj = {
-        user:document.querySelector("#loginUser").value,
+        username:document.querySelector("#loginUser").value,
         password:document.querySelector("#loginPassword").value,
     }
     fetch("/api/users/login",{
@@ -26,7 +26,7 @@ signupForm.addEventListener("submit",e=>{
     e.preventDefault();
     console.log('PREVENTED DEFAULT!')
     const userObj = {
-        user:document.querySelector("#signupUser").value,
+        username:document.querySelector("#signupUser").value,
         password:document.querySelector("#signupPassword").value,
     }
     fetch("/api/users/",{
