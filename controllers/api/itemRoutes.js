@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Item } = require('../../models');
+const { User,Item } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -10,6 +10,16 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.get("/:id",(req,res)=>{
+  Item.findByPk(req.params.id).then(item=>{
+      const itemHbsData = item.get({plain:true});
+      console.log(item);
+      console.log("==============")
+      console.log(itemHbsData)
+      itemHbsData.logged_in=req.session.logged_in
+      res.render("item-details",itemHbsData)
+  })
+})
 
 
 // Create a wishlist item
