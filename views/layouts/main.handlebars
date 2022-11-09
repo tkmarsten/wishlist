@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wish List</title>
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Mountains of Christmas' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <nav>
         <a href="/">Home</a>
         <a href="/profile">View Profile</a>
-        <!-- <a href="/views/allusers.handlebars">View All Users</a>
+        <!-- <a href="/views/allusers.handlebars">View All</a>
         <a href="/views/allusers.handlebars">Search for User</a> -->
         {{!-- <a href="">Saved Users</a> --}}
         {{#if logged_in}}
@@ -21,12 +22,10 @@
         {{/if}}
     </nav>
 
-    <h1>Welcome to the wishlist site!</h1>
-
     <main>
         {{{body}}}
     </main>
-
+<br>
     <footer>This is the footer</footer>
     <script src="/public/js/logout.js"></script>
 </body>
