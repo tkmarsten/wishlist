@@ -3,8 +3,6 @@ wishlistForm.addEventListener("submit",e=>{
     e.preventDefault();
     const listObj = {
         name:document.querySelector("#wishlistName").value,
-        description:document.querySelector("#wishlistDescription").value,
-        needed_funding:document.querySelector("#wishlistFunding").value,
     }
 
     fetch("/api/wishlists",{

@@ -1,9 +1,9 @@
-<h1>Welcome to your Profile Page!</h1>
+<h1>Welcome to your Profile Page!{{user.name}}</h1>
 <h2>My Wish Lists</h2>
 {{#each wishlists}}
     <div class="card">
-        <a href="/wishlist/{{id}}"><h3>{{name}}</h3></a>
-        <button class="delBtn" data-projId="{{id}}">Delete Me</button>
+        <a href="/api/wishlists/{{id}}"><h3>{{name}}</h3></a>
+        <button class="delBtn" data-listId="{{id}}">Delete Me</button>
         <hr>
     </div>
 {{/each}}
