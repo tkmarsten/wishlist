@@ -20,8 +20,8 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
+      req.session.user_id = 3
       req.session.loggedIn = true;
-
       res.status(200).json(dbUserData);
     });
   } catch (err) {
@@ -32,48 +32,47 @@ router.post('/', async (req, res) => {
 
 // Login
 router.post('/login', async (req, res) => {
-    try {
-      const dbUserData = await User.findOne({ where: {username:req.body.username}});       
-    
-      if (!dbUserData) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect username or password. Please try again.' });
-        return;
-      }
-  
-      const validPassword = await dbUserData.checkPassword(req.body.password);
-  
-      if (!validPassword) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect username or password. Please try again.' });
-        return;
-      }
-  // Session variable
-      req.session.save(() => {
-        req.session.loggedIn = true;
-        req.session.cookie
-      
-  
-        res
-          .status(200)
-          .json({ user: dbUserData, message: 'You are now logged in.' });
-      });
-    } catch (err) {
-      res.status(400).json(err);
+  try {
+    const dbUserData = await User.findOne({ where: { username: req.body.username } });
+
+    if (!dbUserData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect username or password. Please try again.' });
+      return;
     }
-  });
-  
-  // Logout
-  router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    } else {
-      res.status(404).end();
+
+    const validPassword = await dbUserData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect username or password. Please try again.' });
+      return;
     }
-  });
-  
-  module.exports = router;
+    // Session variable
+    req.session.save(() => {
+      req.session.user_id = 3
+      req.session.loggedIn = true;
+      req.session.cookie
+      res
+        .status(200)
+        .json({ user: dbUserData, message: 'You are now logged in.' });
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// Logout
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+module.exports = router;
