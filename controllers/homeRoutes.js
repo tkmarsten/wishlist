@@ -22,10 +22,10 @@ router.get("/profile", (req, res) => {
   if (!req.session.loggedIn) {
     return res.redirect("/login")
   }
-  User.findByPk(req.session.user_id, 
+  User.findByPk(req.session.user_id,
     {
-    include: [Wishlist]
-  }
+      include: [Wishlist]
+    }
   ).then(userData => {
     const hbsData = userData.toJSON();
     console.log(hbsData)
