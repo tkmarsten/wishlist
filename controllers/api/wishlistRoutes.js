@@ -6,6 +6,7 @@ router.get('/', async (req, res) => {
     const wishlistData = await Wishlist.findAll({
       include: [Item]
     })
+    console.log(req.session.user_id)
     res.status(200).json(wishlistData)
   } catch (err) {
     res.status(500).json(err)
