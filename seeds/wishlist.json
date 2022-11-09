@@ -1,14 +1,18 @@
 [
   {
-    "name": "Wishlist 1"
+    "name": "Wishlist 1",
+    "user_id":1
   },
   {
-    "name": "Wishlist 2"
+    "name": "Wishlist 2",
+    "user_id":2
   },
   {
-    "name": "Wishlist 3"
+    "name": "Wishlist 3",
+    "user_id":3
   },
   {
-    "name": "Wishlist 4"
+    "name": "Wishlist 4",
+    "user_id":4
   }
 ]

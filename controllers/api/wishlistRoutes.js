@@ -8,7 +8,9 @@ router.get("/sessions",(req,res)=>{
 
 router.get('/', async (req, res) => {
   try {
-    const userData = await Wishlist.findAll({})
+    const userData = await Wishlist.findAll({
+      include:[Item]
+    })
     console.log(req.session.user_id)
     res.status(200).json(userData)
   } catch (err) {
@@ -21,7 +23,8 @@ router.get('/:id', async (req, res) => {
     const userData = await Wishlist.findAll({
       where: {
         user_id: req.params.id
-      }
+      },
+      include: [Item]
     })
     res.status(200).json(userData)
   } catch (err) {
