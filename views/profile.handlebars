@@ -1,22 +1,16 @@
 <h1>Welcome to your Profile Page!</h1>
-<h2>My Wish List</h2>
-
-{{#each listitems}}
+<h2>My Wish Lists</h2>
+{{#each wishlists}}
     <div class="card">
-        {{!-- wish list item info --}}
-        <button>update</button>
-        <button>delete</button>
-        {{!-- checkmark is purchased? --}}
+        <a href="/wishlist/{{id}}"><h3>{{name}}</h3></a>
+        <button class="delBtn" data-projId="{{id}}">Delete Me</button>
+        <hr>
     </div>
-    <h2>Add an Item</h2>
-    {{!-- add item form  --}}
-    <form action="" id="addItem">
-    <input type="text" name="itemName" id="itemName" placeholder="Item Name">
-    <input type="text" name="description" id="description" placeholder="Item Description">
-    <input type="text" name="link" id="link" placeholder="Link">
-    <input type="number" name="quanity" id="quanity" placeholder="Quanity">
-    <button>Add</button>
-</form>
 {{/each}}
+<h2>Add a wishlist!</h2>
+<form action="" id="addwishlist">
+    <input type="text" name="wishlistName" id="wishlistName" placeholder="wishlistName">
+    <button>Add wishlist!</button>
+</form>
 
-<script src="/public/js/profile.js"></script>
+<script src="/js/profile.js"></script>
