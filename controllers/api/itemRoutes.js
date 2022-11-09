@@ -1,11 +1,9 @@
 const router = require('express').Router();
-const { Wishlist, Item } = require('../../models');
+const { Item } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
-    const userData = await Wishlist.findAll({
-      include: [{ model: Item }]
-    })
+    const userData = await Item.findAll()
     res.status(200).json(userData)
   } catch (err) {
     res.status(500).json(err)

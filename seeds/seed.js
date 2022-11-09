@@ -20,11 +20,7 @@ const seedDatabase = async () => {
     });
   }
 
-  for (const item of itemData) {
-    await Item.create({
-      ...item,
-    })
-  }
+  await Item.bulkCreate(itemData)
 
   process.exit(0);
 };
