@@ -18,7 +18,7 @@ const sess = {
   })
 };
 
-app.use(express.static("public"))
+app.use(express.static('public'))
 
 // Create the Handlebars.js engine object with custom helper functions
 const hbs = exphbs.create({});

@@ -5,4 +5,8 @@ const homeRoutes = require('./homeRoutes')
 router.use('/api', apiRoutes);
 router.use(homeRoutes)
 
+router.get("/session", (req, res) => {
+  res.json(req.session)
+})
+
 module.exports = router;
