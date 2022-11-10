@@ -4,8 +4,8 @@ const nodemailer = require('nodemailer');
 let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASSWORD
+    user: process.env.EMAIL, //artembootcampapi@gmail.com
+    pass: process.env.PASSWORD //wsopdbfdlyovjviz
   }
 });
 
@@ -13,8 +13,8 @@ let transporter = nodemailer.createTransport({
 let fullUrl="n/a"
 
 let mailOptions = {
-  from: 'artembootcampapi@gmail.com',
-  to: 'artem011202@gmail.com',
+  from: sendingemail,//sending email input
+  to: recivingemail,// reciving email input 
   subject: 'Wishlist',
   html: "Check out this Wishlist: " + fullUrl
 };
