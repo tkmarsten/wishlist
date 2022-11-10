@@ -12,17 +12,17 @@ router.get('/', async (req, res) => {
     res.status(500).json(err)
   }
 })
-
-router.get('/:id', async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.params.id, {
-      include: [Wishlist]
-    })
-
-    res.status(200).json(userData)
-  } catch (err) {
-    res.status(500).json(err)
-  }
+//one user
+router.get('/:id',(req,res)=>{
+  User.findByPk(req.params.id,{
+    include:[Wishlist]
+}).then(user=>{
+    const userHbsData = user.get({plain:true});
+    console.log(user);
+    console.log("==============")
+    console.log(userHbsData)
+    res.render("user",userHbsData)
+})
 })
 
 router.post('/', async (req, res) => {
@@ -81,5 +81,6 @@ router.post('/logout', (req, res) => {
     res.status(404).end()
   }
 })
+
 
 module.exports = router
