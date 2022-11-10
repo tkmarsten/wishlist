@@ -25,6 +25,10 @@ Item.init(
         isNumeric: true
       }
     },
+    priority: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     wishlist_id: {
       type: DataTypes.INTEGER,
       references: {
