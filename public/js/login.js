@@ -14,9 +14,9 @@ loginForm.addEventListener("submit", e => {
         }
     }).then(res => {
         if (res.ok) {
-            location.reload()
+            location.replace("/profile")
         } else {
-            alert("")
+            alert("error logging in")
         }
     })
 })
@@ -39,9 +39,10 @@ signupForm.addEventListener("submit",e=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.reload()
+            alert("signed up!")
+            location.replace("/profile")
         } else {
-            alert("trumpet sound")
+            alert("error signing up")
         }
     })
 })

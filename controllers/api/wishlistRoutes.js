@@ -57,7 +57,7 @@ router.post('/', async (req, res) => {
 // Update wishlist 
 router.put('/:id', async (req, res) => {
   try {
-    const wishlistData = await Item.update(req.body, {
+    const wishlistData = await Wishlist.update(req.body, {
       where: {
         id: req.params.id
       }
@@ -74,14 +74,15 @@ router.put('/:id', async (req, res) => {
   }
 })
 
-// Delete wishlist items
+// Delete wishlist 
 router.delete('/:id', async (req, res) => {
   try {
-    const wishlistData = await Item.destroy({
+    const wishlistData = await Wishlist.destroy({
       where: {
-        id: req.params.id
-      }
-    })
+        id: req.params.id,
+        user_id:req.session.user_id,
+      },
+    });
 
     if (!wishlistData) {
       res.status(404).json({ message: 'Wishlist with this ID not found' });
