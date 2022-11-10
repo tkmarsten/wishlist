@@ -43,15 +43,15 @@ router.get("/random", (req,res) => {
   {
   include: [Item]
 }
-  ).then(
-    listData => {
-  //   // const hbsData = listData.toJSON();
-  //   console.log(listData)
-  //   // res.render("list-details", hbsData)
-    res.render("list-details",listData)
-  }
-  )
-  });
+  ).then(listData=>{
+    const listDataHbsData = listData.get({plain:true});
+    console.log(listData);
+    console.log("==============")
+    console.log(listDataHbsData)
+    listDataHbsData.logged_in=req.session.logged_in
+    res.render("list-details",listDataHbsData)
+})
+})
 
 
 
