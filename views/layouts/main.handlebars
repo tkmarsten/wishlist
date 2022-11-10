@@ -15,7 +15,7 @@
         <!-- <a href="/views/allusers.handlebars">View All</a>
         <a href="/views/allusers.handlebars">Search for User</a> -->
         {{!-- <a href="">Saved Users</a> --}}
-        {{#if logged_in}}
+        {{#if loggedIn}}
         <button id ="logoutBtn">Logout</button>
         {{else}}
         <a href="/login">Login</a>
@@ -27,6 +27,6 @@
     </main>
 <br>
     <footer>This is the footer</footer>
-    <script src="/public/js/logout.js"></script>
+    <script src="/js/logout.js"></script>
 </body>
 </html>

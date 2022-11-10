@@ -3,23 +3,27 @@
     "name": "Coding for Dummies",
     "link": "https://a.co/d/8nZ5jYk.",
     "quantity": 1,
+    "priority":"High",
     "wishlist_id": 1
   },
   {
     "name": "Osmo - Coding Starter Kit for iPad",
     "quantity": 1,
-    "wishlist_id": 1
+    "priority":"High",
+    "wishlist_id": 2
   },
   {
     "name": "Roomba",
     "link": "https://a.co/d/g8bvzAx",
     "quantity": 1,
-    "wishlist_id": 1
+    "priority":"High",
+    "wishlist_id": 3
   },
   {
     "name": "Towels",
     "link": "https://www.target.com/p/everyday-bath-towel-room-essentials/-/A-81953828?preselect=81781717#lnk=sametab",
     "quantity": 4,
-    "wishlist_id": 1
+    "priority":"High",
+    "wishlist_id": 4
   }
 ]
