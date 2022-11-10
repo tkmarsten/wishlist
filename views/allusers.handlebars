@@ -1,7 +1,9 @@
-{{!-- <h1>Find a Friend or Family Member</h1>
+<h1>Find a Friend or Family Member</h1>
 <h2>All Users</h2>
-{{#each wishlists}}
-     {{name}}
+{{#each this}}
+    <div class="card">
+        <h3>{{username}}</h3>
+    </div>
 {{/each}}
 <h2>Find Someone</h2>
 {{!-- search for specific user --}}
@@ -9,13 +11,4 @@
     <input type="text" name="searchUser" id="searchUser" placeholder="User Name">
     <button>search</button>
 </form>
-<script src="/js/user.js"></script> --}}
-
-
-{{#each users}}
-<div>
-    <p>{{username}}
-    </p>
-</div>
-    <hr>
-{{/each}}
+<script src="/js/user.js"></script>

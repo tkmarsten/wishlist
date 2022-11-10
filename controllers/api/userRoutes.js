@@ -82,4 +82,15 @@ router.post('/logout', (req, res) => {
   }
 })
 
+// //all users
+// router.get("/viewall", (req,res) => {
+//   User.findAll(
+// {include: [Wishlist]}
+// ).then(alluserData=>{
+//   const alluserDataHbsData = alluserData.map(allusers=>allusers.get({plain:true}))
+//   // console.log(alluserDataHbsData)
+//   res.render("allusers",alluserDataHbsData)
+// })
+// })
+
 module.exports = router
