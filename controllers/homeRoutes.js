@@ -43,15 +43,10 @@ router.get("/random", (req,res) => {
     const randomID = Math.floor(Math.random() * wishlistData.length)
     console.log(randomID)
   Wishlist.findByPk( randomID ,
-  {
-  include: [Item]
-}
+  {include: {all:true}}
   ).then(listData=>{
     const listDataHbsData = listData.get({plain:true});
-    console.log(listData);
-    console.log("==============")
     console.log(listDataHbsData)
-    listDataHbsData.logged_in=req.session.logged_in
     res.render("list-details",listDataHbsData)
 })
 })
