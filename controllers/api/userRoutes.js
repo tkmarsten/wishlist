@@ -27,20 +27,18 @@ router.get('/:id',(req,res)=>{
 
 router.post('/', async (req, res) => {
   try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      password: req.body.password,
-    })
+    const userData = await User.create(req.body);
 
     req.session.save(() => {
-      req.session.user_id = dbUserData.id
-      req.session.loggedIn = true
-      res.status(200).json(dbUserData)
-    })
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
+    });
   } catch (err) {
-    res.status(500).json(err)
+    res.status(400).json(err);
   }
-})
+});
 
 // Login
 router.post('/login', async (req, res) => {
