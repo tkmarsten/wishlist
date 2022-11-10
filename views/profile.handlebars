@@ -1,0 +1,16 @@
+<h1>Welcome to your Profile Page {{username}}</h1>
+<h2>My Wish Lists</h2>
+{{#each wishlists}}
+    <div class="card">
+        <a href="/api/wishlists/{{id}}"><h3>{{name}}</h3></a>
+        <button class="delBtn" data-listId="{{id}}">Delete Me</button>
+        <hr>
+    </div>
+{{/each}}
+<h2>Add a wishlist!</h2>
+<form action="" id="addwishlist">
+    <input type="text" name="wishlistName" id="wishlistName" placeholder="wishlistName">
+    <button>Add wishlist!</button>
+</form>
+
+<script src="/js/profile.js"></script>
