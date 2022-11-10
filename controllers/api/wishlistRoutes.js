@@ -28,9 +28,7 @@ router.get('/', async (req, res) => {
 // })
 
 router.get("/:id", (req, res) => {
-  Wishlist.findByPk(req.params.id, {
-    include: [Item]
-  })
+  Wishlist.findByPk(req.params.id, {include: {all:true}})
     .then(wishlist => {
       const wishlistHbsData = wishlist.get({ plain: true });
       console.log(wishlist);
