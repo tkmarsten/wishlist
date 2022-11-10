@@ -22,24 +22,26 @@ loginForm.addEventListener("submit", e => {
 })
 
 const signupForm = document.querySelector("#signup");
-signupForm.addEventListener("submit", e => {
+signupForm.addEventListener("submit",e=>{
     e.preventDefault();
     console.log('PREVENTED DEFAULT!')
     const userObj = {
-        username: document.querySelector("#signupUser").value,
-        password: document.querySelector("#signupPassword").value,
+        username:document.querySelector("#signupUser").value,
+        password:document.querySelector("#signupPassword").value,
+        first_name:document.querySelector("#signupFirst").value,
+        last_name:document.querySelector("#signupLast").value,
     }
-    fetch("/api/users/", {
-        method: "POST",
-        body: JSON.stringify(userObj),
-        headers: {
-            "Content-Type": "application/json"
+    fetch("/api/users/",{
+        method:"POST",
+        body:JSON.stringify(userObj),
+        headers:{
+            "Content-Type":"application/json"
         }
-    }).then(res => {
-        if (res.ok) {
-            location.reload()
+    }).then(res=>{
+        if(res.ok){
+           location.reload()
         } else {
-            alert("")
+            alert("trumpet sound")
         }
     })
 })
