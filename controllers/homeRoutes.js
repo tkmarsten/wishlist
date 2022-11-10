@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     user_id: req.session.user_id
   })
 })
-
+//login page
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     return res.redirect('/profile')
@@ -20,7 +20,7 @@ router.get("/login", (req, res) => {
     user_id: null
   })
 })
-
+//profile page
 router.get("/profile", (req, res) => {
   if (!req.session.loggedIn) {
     return res.redirect("/login")
@@ -38,7 +38,7 @@ router.get("/profile", (req, res) => {
     })
 })
 
-
+//random profile
 router.get("/random", (req,res) => {
     const randomID = Math.floor(Math.random() * wishlistData.length)
     console.log(randomID)
@@ -51,6 +51,15 @@ router.get("/random", (req,res) => {
 })
 })
 
-
+//all users
+router.get("/viewallusers", (req,res) => {
+  User.findAll(
+{include: [Wishlist]}
+).then(alluserData=>{
+  const alluserDataHbsData = alluserData.map(allusers=>allusers.get({plain:true}))
+  console.log(alluserDataHbsData)
+  res.render("allusers",alluserDataHbsData)
+})
+})
 
 module.exports = router
