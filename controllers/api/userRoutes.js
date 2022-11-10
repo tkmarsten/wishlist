@@ -27,13 +27,14 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      password: req.body.password,
-    })
+    const dbUserData = await User.create(req.body);
+    //   {
+    //   // username: req.body.username,
+    //   // password: req.body.password,
+    // })
 
     req.session.save(() => {
-      req.session.user_id = dbUserData.id
+      req.session.user_id = dbUserData.ids
       req.session.loggedIn = true
       res.status(200).json(dbUserData)
     })

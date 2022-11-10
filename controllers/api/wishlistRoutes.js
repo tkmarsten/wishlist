@@ -45,7 +45,9 @@ router.get("/:id", (req, res) => {
 // Create a wishlist
 router.post('/', async (req, res) => {
   try {
-    const newWishlistData = await Wishlist.create(req.body,{user_id: req.session.user_id})
+    const newWishlistData = await Wishlist.create({
+      ...req.body,
+      user_id: req.session.user_id,})
 
 
     res.status(200).json(newWishlistData)
