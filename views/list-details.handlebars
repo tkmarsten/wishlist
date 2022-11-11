@@ -1,13 +1,123 @@
 <h1>{{name}}</h1>
-<h2>for {{user.username}}</h2>
-{{#each items}}
-<div class="card">
-    <p>{{name}}
-    <a href="{{link}}" target="_blank">link</a>
-    <p>Quantity Wanted: {{quantity}}</p>
-    <p>Priority: {{priority}}</p>
-    <button class="delBtn" data-projId="{{id}}">Delete Me</button>
-    </p>
-    <hr>
+
+<button
+  type="button"
+  class="btn"
+  data-bs-toggle="modal"
+  data-bs-target="#addModal"
+><i class="fa-solid fa-cart-plus text-success"></i></button>
+
+<div
+  class="modal fade"
+  id="addModal"
+  tabindex="-1"
+  aria-labelledby="addModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addModal">Add a new item</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="addItem" data-listId="{{id}}">
+          <input
+            type="text"
+            class="form-control mb-3"
+            id="itemName"
+            placeholder="name"
+          />
+          <input
+            type="text"
+            class="form-control mb-3"
+            id="itemLink"
+            placeholder="link (can be empty)"
+          />
+          <input
+            type="number"
+            class="form-control mb-3"
+            id="itemQuantity"
+            placeholder="amount"
+          />
+          <label for="priorityLevel">Select priority level</label>
+          <select class="form-select" id="priorityLevel">
+            <option value="low">low</option>
+            <option value="medium">medium</option>
+            <option value="high">high</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Add item</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
-{{/each}}
+
+<button
+  type="button"
+  class="btn"
+  data-bs-toggle="modal"
+  data-bs-target="#editModal"
+><i class="fa-solid fa-gear text-primary"></i></button>
+
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  aria-labelledby="editModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editModal">Edit your wishlist</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="editWishlist" data-listId="{{id}}">
+          <input
+            type="text"
+            class="form-control mb-3"
+            id="editListName"
+            placeholder="name"
+          />
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="btn" id="delBtn" data-listId="{{id}}"><i
+    class="fa-solid fa-trash text-danger"
+  ></i></button>
+
+<div class="row row-cols-1 row-cols-md-1 g-4 mt-4">
+  {{#each items}}
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+          <a href="{{link}}" target="_blank">link</a>
+          <p>Quantity Wanted: {{quantity}}</p>
+          <p>Priority: {{priority}}</p>
+          <button class="btn" id="delItemBtn" data-listId="{{id}}"><i
+              class="fa-solid fa-trash text-danger"
+            ></i></button>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+<script src="/js/wishlist.js"></script>
