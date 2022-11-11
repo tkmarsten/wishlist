@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(err)
   }
 })
-//one user
+//one user by id
 router.get('/:id',(req,res)=>{
   User.findByPk(req.params.id,{
     include:[Wishlist]
@@ -24,6 +24,20 @@ router.get('/:id',(req,res)=>{
     res.render("user",userHbsData)
 })
 })
+//one user by username
+router.get('/search/:username',(req,res)=>{
+  User.findOne({
+    where: {username:req.params.username},
+    include:[Wishlist]
+}).then(user=>{
+    const userNameHbsData = user.get({plain:true});
+    console.log(user);
+    console.log("==============")
+    console.log(userNameHbsData)
+    res.render("user",userNameHbsData)
+})
+})
+
 
 router.post('/', async (req, res) => {
   try {
