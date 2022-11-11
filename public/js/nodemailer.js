@@ -10,16 +10,16 @@ let transporter = nodemailer.createTransport({
 });
 
 //need to get fullURL
-let fullUrl="n/a"
+let fullUrl = "n/a"
 
 let mailOptions = {
-  from: sendingemail,//sending email input
-  to: recivingemail,// reciving email input 
+  from: sendingEmail,//sending email input
+  to: receivingEmail,// reciving email input 
   subject: 'Wishlist',
   html: "Check out this Wishlist: " + fullUrl
 };
 
-transporter.sendMail(mailOptions, function(error, info){
+transporter.sendMail(mailOptions, function (error, info) {
   if (error) {
     console.log(error);
   } else {

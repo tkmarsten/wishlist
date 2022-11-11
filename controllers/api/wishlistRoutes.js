@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get("/:id", (req, res) => {
-  Wishlist.findByPk(req.params.id, {include: {all:true}})
+  Wishlist.findByPk(req.params.id, { include: { all: true } })
     .then(wishlist => {
       const wishlistHbsData = wishlist.get({ plain: true });
       console.log(wishlist);
@@ -31,7 +31,8 @@ router.post('/', async (req, res) => {
   try {
     const newWishlistData = await Wishlist.create({
       ...req.body,
-      user_id: req.session.user_id,})
+      user_id: req.session.user_id,
+    })
 
 
     res.status(200).json(newWishlistData)
@@ -66,7 +67,7 @@ router.delete('/:id', async (req, res) => {
     const wishlistData = await Wishlist.destroy({
       where: {
         id: req.params.id,
-        user_id:req.session.user_id,
+        user_id: req.session.user_id,
       },
     });
 

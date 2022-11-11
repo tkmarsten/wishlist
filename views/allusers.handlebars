@@ -1,14 +1,28 @@
 <h1>Find a Friend or Family Member</h1>
 <h2>All Users</h2>
-{{#each this}}
-    <div class="card">
-       <a href="/api/users/{{id}}"><h3>{{username}}</h3></a>
+
+<div class="row row-cols-1 row-cols-md-4 g-4 mt-4">
+  {{#each this}}
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <a href="/api/users/{{id}}"><h5>{{username}}</h5></a>
+          <p class="text-muted">{{first_name}}</p>
+        </div>
+      </div>
     </div>
-{{/each}}
+  {{/each}}
+</div>
+
 <h2>Find Someone</h2>
-{{!-- search for specific user --}}
+{{! search for specific user }}
 <form action ="" id="searchUser">
-    <input type="text" name="searchUser" id="searchUsername" placeholder="Username">
-    <button>search</button>
+  <input
+    type="text"
+    name="searchUser"
+    id="searchUsername"
+    placeholder="Username"
+  />
+  <button>search</button>
 </form>
 <script src="/js/user.js"></script>
