@@ -1,16 +1,79 @@
 <h2>Login Page</h2>
-<form action="" id="login">
-    <input type="text" name="loginUser" id="loginUser" placeholder="loginUser">
-    <input type="password" name="loginPassword" id="loginPassword" placeholder="loginPassword">
-    <button>Login</button>
+<form id="login">
+  <div class="row mb-3">
+    <div class="col-sm-10 input-group">
+      <div class="input-group-text"><i class="fa-solid fa-at"></i></div>
+      <input
+        type="text"
+        class="form-control"
+        id="loginUser"
+        placeholder="username"
+      />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-10 input-group">
+      <div class="input-group-text"><i class="fa-solid fa-lock"></i></div>
+      <input
+        type="password"
+        class="form-control"
+        id="loginPassword"
+        placeholder="password"
+      />
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
 </form>
-<hr>
+
+<hr />
 
 <h2>Signup</h2>
-<form action="" id="signup">
-    <input type="text" name="signupUser" id="signupUser" placeholder="signupUser">
-    <input type="password" name="signupPassword" id="signupPassword" placeholder="signupPassword">
-    <button>Signup</button>
+<form id="signup">
+  <div class="row mb-3">
+    <div class="col-sm-10 input-group">
+      <div class="input-group-text"><i class="fa-solid fa-at"></i></div>
+      <input
+        type="text"
+        class="form-control"
+        id="signupUser"
+        placeholder="username"
+      />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-10 input-group">
+      <div class="input-group-text"><i class="fa-solid fa-user-pen"></i></div>
+      <input
+        type="text"
+        class="form-control"
+        id="signupFirst"
+        placeholder="first name"
+      />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-10 input-group">
+      <div class="input-group-text"><i class="fa-solid fa-user-pen"></i></div>
+      <input
+        type="text"
+        class="form-control"
+        id="signupLast"
+        placeholder="last name"
+      />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-10 input-group">
+      <div class="input-group-text"><i class="fa-solid fa-lock"></i></div>
+      <input
+        type="text"
+        class="form-control"
+        id="signupPassword"
+        placeholder="password"
+      />
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Signup</button>
 </form>
 
 <script src="/js/login.js"></script>

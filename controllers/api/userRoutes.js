@@ -12,35 +12,47 @@ router.get('/', async (req, res) => {
     res.status(500).json(err)
   }
 })
-
-router.get('/:id', async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.params.id, {
-      include: [Wishlist]
-    })
-
-    res.status(200).json(userData)
-  } catch (err) {
-    res.status(500).json(err)
-  }
+//one user by id
+router.get('/:id',(req,res)=>{
+  User.findByPk(req.params.id,{
+    include:[Wishlist]
+}).then(user=>{
+    const userHbsData = user.get({plain:true});
+    console.log(user);
+    console.log("==============")
+    console.log(userHbsData)
+    res.render("user",userHbsData)
 })
+})
+//one user by username
+router.get('/search/:username',(req,res)=>{
+  User.findOne({
+    where: {username:req.params.username},
+    include:[Wishlist]
+}).then(user=>{
+    const userNameHbsData = user.get({plain:true});
+    console.log(user);
+    console.log("==============")
+    console.log(userNameHbsData)
+    res.render("user",userNameHbsData)
+})
+})
+
 
 router.post('/', async (req, res) => {
   try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      password: req.body.password,
-    })
+    const userData = await User.create(req.body);
 
     req.session.save(() => {
-      req.session.user_id = dbUserData.id
-      req.session.loggedIn = true
-      res.status(200).json(dbUserData)
-    })
+      req.session.user_id = userData.id;
+      req.session.loggedIn = true;
+
+      res.status(200).json(userData);
+    });
   } catch (err) {
-    res.status(500).json(err)
+    res.status(400).json(err);
   }
-})
+});
 
 // Login
 router.post('/login', async (req, res) => {
@@ -81,5 +93,6 @@ router.post('/logout', (req, res) => {
     res.status(404).end()
   }
 })
+
 
 module.exports = router
