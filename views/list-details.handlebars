@@ -5,7 +5,7 @@
   class="btn"
   data-bs-toggle="modal"
   data-bs-target="#addModal"
-><i class="fa-solid fa-cart-plus text-success"></i></button>
+><i class="fa-solid fa-cart-plus fa-2x text-success"></i></button>
 
 <div
   class="modal fade"
@@ -46,7 +46,7 @@
             placeholder="amount"
           />
           <label for="priorityLevel">Select priority level</label>
-          <select class="form-select" id="priorityLevel">
+          <select class="form-select mb-3" id="priorityLevel">
             <option value="low">low</option>
             <option value="medium">medium</option>
             <option value="high">high</option>
@@ -63,7 +63,7 @@
   class="btn"
   data-bs-toggle="modal"
   data-bs-target="#editModal"
-><i class="fa-solid fa-gear text-primary"></i></button>
+><i class="fa-solid fa-gear fa-2x text-primary"></i></button>
 
 <div
   class="modal fade"
@@ -99,7 +99,7 @@
 </div>
 
 <button class="btn" id="delBtn" data-listId="{{id}}"><i
-    class="fa-solid fa-trash text-danger"
+    class="fa-solid fa-trash fa-2x text-danger"
   ></i></button>
 
 <div class="row row-cols-1 row-cols-md-1 g-4 mt-4">
@@ -108,9 +108,13 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{name}}</h5>
-          <a href="{{link}}" target="_blank">link</a>
+          <button type="button" class="btn btn-dark"><a
+              href="{{link}}"
+              target="_blank"
+              class="text-white"
+            >Product link</a></button>
           <p>Quantity Wanted: {{quantity}}</p>
-          <p>Priority: {{priority}}</p>
+          <p class="priority">{{priority}}</p>
           <button class="delItemBtn btn" data-itemId="{{id}}"><i
               class="fa-solid fa-trash text-danger"
             ></i></button>

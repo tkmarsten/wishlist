@@ -84,3 +84,18 @@ delItemBtns.forEach(itemBtn => {
     })
   })
 })
+
+const priorityEls = document.querySelectorAll('.priority')
+priorityEls.forEach(element => {
+  switch (element.innerHTML) {
+    case 'low':
+      element.className = 'text-bg-success'
+      break
+    case 'medium':
+      element.className = 'text-bg-warning'
+      break
+    case 'high':
+      element.className = 'text-bg-danger'
+      break
+  }
+})
