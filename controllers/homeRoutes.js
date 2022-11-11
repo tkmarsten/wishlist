@@ -57,7 +57,7 @@ router.get("/viewallusers", (req,res) => {
 {include: [Wishlist]}
 ).then(alluserData=>{
   const alluserDataHbsData = alluserData.map(allusers=>allusers.get({plain:true}))
-  console.log(alluserDataHbsData)
+  // console.log(alluserDataHbsData)
   res.render("allusers",alluserDataHbsData)
 })
 })
