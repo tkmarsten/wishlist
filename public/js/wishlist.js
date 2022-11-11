@@ -57,12 +57,30 @@ delBtn.addEventListener('click', e => {
   const listId = e.target.parentElement.getAttribute("data-listId")
 
   fetch(`/api/wishlists/${listId}`, {
-    method: "DELETE"
+    method: 'DELETE'
   }).then(res => {
     if (res.ok) {
       location.replace('/profile')
     } else {
       alert("trumpet sound")
     }
+  })
+})
+
+const delItemBtns = document.querySelectorAll('.delItemBtn')
+delItemBtns.forEach(itemBtn => {
+  itemBtn.addEventListener('click', e => {
+    const itemId = e.target.parentElement.getAttribute("data-itemId")
+    console.log(itemId)
+
+    fetch(`/api/items/${itemId}`, {
+      method: 'DELETE'
+    }).then(res => {
+      if (res.ok) {
+        location.reload()
+      } else {
+        alert('stinky')
+      }
+    })
   })
 })
