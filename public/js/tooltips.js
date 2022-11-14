@@ -6,10 +6,9 @@ const allBtn = document.querySelector('#allBtn');
 const allTooltip = document.querySelector('#allTooltip');
 const logBtn = document.querySelector('#logBtn');
 const logTooltip = document.querySelector('#logTooltip');
-const listBtn = document.querySelector('#listBtn');
-const listTooltip = document.querySelector('#listTooltip');
 
-const popperInstance = Popper.createPopper(button, tooltip, homeBtn, homeTooltip, allBtn, allTooltip, logBtn, logTooltip, listBtn, listTooltip{
+
+const popperInstance = Popper.createPopper(button, tooltip, homeBtn, homeTooltip, allBtn, allTooltip, logBtn, logTooltip,  {
     modifiers: [
         {
             name: 'offset',
@@ -38,8 +37,6 @@ function showHome() {
 function show() {
     // Make the tooltip visible
     tooltip.setAttribute('data-show', '');
-    logTooltip.setAttribute('data-show', '');
-
     // Enable the event listeners
     popperInstance.setOptions((options) => ({
         ...options,
@@ -84,35 +81,6 @@ function showLog() {
     // Update its position
     popperInstance.update();
 }
-function showList() {
-    // Make the tooltip visible
-    listTooltip.setAttribute('data-show', '');
-    // Enable the event listeners
-    popperInstance.setOptions((options) => ({
-        ...options,
-        modifiers: [
-            ...options.modifiers,
-            { name: 'eventListeners', enabled: true },
-        ],
-    }));
-
-    // Update its position
-    popperInstance.update();
-}
-
-function hide() {
-    // Hide the tooltip
-    tooltip.removeAttribute('data-show')
-
-    // Disable the event listeners
-    popperInstance.setOptions((options) => ({
-        ...options,
-        modifiers: [
-            ...options.modifiers,
-            { name: 'eventListeners', enabled: false },
-        ],
-    }));
-}
 
 function hideHome() {
     // Hide the tooltip
@@ -126,6 +94,20 @@ function hideHome() {
         ],
     }));
 }
+
+function hide() {
+    // Hide the tooltip
+    tooltip.removeAttribute('data-show')
+    // Disable the event listeners
+    popperInstance.setOptions((options) => ({
+        ...options,
+        modifiers: [
+            ...options.modifiers,
+            { name: 'eventListeners', enabled: false },
+        ],
+    }));
+}
+
 function hideAll() {
     // Hide the tooltip
     allTooltip.removeAttribute('data-show');
@@ -154,25 +136,12 @@ function hideLog() {
         ],
     }));
 }
-function hideList() {
-    // Hide the tooltip
-    listTooltip.removeAttribute('data-show');
 
-    // Disable the event listeners
-    popperInstance.setOptions((options) => ({
-        ...options,
-        modifiers: [
-            ...options.modifiers,
-            { name: 'eventListeners', enabled: false },
-        ],
-    }));
-}
 showEvents.forEach((event) => {
     homeBtn.addEventListener(event, showHome);
     button.addEventListener(event, show);
     allBtn.addEventListener(event, showAll);
     logBtn.addEventListener(event, showLog);
-    listBtn.addEventListener(event, showList);
 });
 
 
@@ -181,5 +150,4 @@ hideEvents.forEach((event) => {
     homeBtn.addEventListener(event, hideHome);
     allBtn.addEventListener(event, hideAll);
     logBtn.addEventListener(event, hideLog);
-    listBtn.addEventListener(event, hideList);
 });

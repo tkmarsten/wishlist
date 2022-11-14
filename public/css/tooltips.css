@@ -1,5 +1,5 @@
 
-#tooltip, #homeTooltip, #allTooltip, #logTooltip, #listTooltip {
+#tooltip, #homeTooltip, #allTooltip, #logTooltip {
     background: #333;
     color: white;
     font-weight: bold;
@@ -12,8 +12,7 @@
   #tooltip[data-show], 
   #homeTooltip[data-show],
   #allTooltip[data-show], 
-  #logTooltip[data-show], 
-  #listTooltip[data-show]  
+  #logTooltip[data-show] 
   {
     display: block;
   }
@@ -25,9 +24,7 @@
   #allArrow
   #allArrow::before,
   #logArrow
-  #logArrow::before,
-  #listArrow
-  #listArrow::before 
+  #logArrow::before 
   {
     position: absolute;
     width: 8px;
@@ -38,8 +35,7 @@
   #arrow, 
   #homeArrow, 
   #allArrow, 
-  #logArrow, 
-  #listArrow  
+  #logArrow 
   {
     visibility: hidden;
   }
@@ -47,8 +43,7 @@
   #arrow::before, 
   #homeArrow::before,
   #allArrow::before, 
-  #logArrow::before, 
-  #listArrow::before 
+  #logArrow::before 
    {
     visibility: visible;
     content: '';
@@ -58,8 +53,7 @@
   #tooltip[data-popper-placement^='top'] > #arrow, 
   #homeTooltip[data-popper-placement^='top'] > #homeArrow,
   #allTooltip[data-popper-placement^='top'] > #allArrow,
-  #logTooltip[data-popper-placement^='top'] > #logArrow,
-  #listTooltip[data-popper-placement^='top'] > #listArrow 
+  #logTooltip[data-popper-placement^='top'] > #logArrow 
    {
     bottom: -4px;
   }
@@ -67,8 +61,7 @@
   #tooltip[data-popper-placement^='bottom'] > #arrow, 
   #homeTooltip[data-popper-placement^='bottom'] > #homeArrow,
   #allTooltip[data-popper-placement^='bottom'] > #allArrow,
-  #logTooltip[data-popper-placement^='bottom'] > #logArrow,
-  #listTooltip[data-popper-placement^='bottom'] > #listArrow 
+  #logTooltip[data-popper-placement^='bottom'] > #logArrow 
    {
     top: -4px;
   }
@@ -76,8 +69,7 @@
   #tooltip[data-popper-placement^='left'] > #arrow, 
   #homeTooltip[data-popper-placement^='left'] > #homeArrow,
   #allTooltip[data-popper-placement^='left'] > #allArrow,
-  #logTooltip[data-popper-placement^='left'] > #logArrow,
-  #listTooltip[data-popper-placement^='left'] > #listArrow 
+  #logTooltip[data-popper-placement^='left'] > #logArrow 
    {
     right: -4px;
   }
