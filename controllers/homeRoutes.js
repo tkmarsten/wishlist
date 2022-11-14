@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
     user_id: req.session.user_id
   })
 })
+
 //login page
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
@@ -36,44 +37,28 @@ router.get("/profile", (req, res) => {
       hbsData.user_id = req.session.user_id
       res.render("profile", hbsData)
     })
-  })
-  
-//random profile
-
-router.get("/random", (req,res) => {
-  function getRandomWishlist () {
-    const randomID = Math.floor(Math.random()*100 + 1)
-    console.log(randomID)
-    Wishlist.findByPk( randomID ,
-      {include: {all:true}}
-  ).then(listData=>{
-    if (listData) {
-      const listDataHbsData = listData.get({plain:true});
-      // console.log(listDataHbsData)
-      return res.render("list-details",listDataHbsData)
-      
-    }
-    getRandomWishlist()
-
-  })
-}
 })
-// getRandomWishlist()
-// router.get("/random", async (req, res) => {
 
-//   let randomID = null
-//   do {
-//     randomID = Math.floor(Math.random() * await Wishlist.count())
-//   } while (randomID === null)
-//   console.log(randomID)
-//   Wishlist.findByPk(randomID,
-//     { include: { all: true } }
-//   ).then(listData => {
-//     const listDataHbsData = listData.get({ plain: true });
-//     console.log(listDataHbsData)
-//     res.render("list-details", listDataHbsData)
-//   })
-// })
+//random profile
+router.get("/random", async (req, res) => {
+
+  let temp = []
+  const wishlistArray = await Wishlist.findAll()
+
+  wishlistArray.map(wishlist => {
+    temp.push(wishlist.get({ plain: true }).id)
+  })
+
+  const randomID = Math.floor(Math.random() * temp.length)
+  console.log(randomID)
+  Wishlist.findByPk(temp[randomID],
+    { include: { all: true } }
+  ).then(listData => {
+    const listDataHbsData = listData.get({ plain: true });
+    console.log(listDataHbsData)
+    res.render("list-details", listDataHbsData)
+  })
+})
 
 //all users
 router.get("/viewallusers", (req, res) => {
