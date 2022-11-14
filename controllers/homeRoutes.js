@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
     user_id: req.session.user_id
   })
 })
+
 //login page
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
@@ -42,12 +43,16 @@ router.get("/profile", (req, res) => {
 //random profile
 router.get("/random", async (req, res) => {
 
-  let randomID = null
-  do {
-    randomID = Math.floor(Math.random() * await Wishlist.count())
-  } while (randomID === null)
+  let temp = []
+  const wishlistArray = await Wishlist.findAll()
+
+  wishlistArray.map(wishlist => {
+    temp.push(wishlist.get({ plain: true }).id)
+  })
+
+  const randomID = Math.floor(Math.random() * temp.length)
   console.log(randomID)
-  Wishlist.findByPk(randomID,
+  Wishlist.findByPk(temp[randomID],
     { include: { all: true } }
   ).then(listData => {
     const listDataHbsData = listData.get({ plain: true });
