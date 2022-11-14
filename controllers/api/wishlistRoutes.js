@@ -21,6 +21,7 @@ router.get("/:id", (req, res) => {
       console.log("==============")
       console.log(wishlistHbsData)
       wishlistHbsData.loggedIn = req.session.loggedIn
+      wishlistHbsData.validateUser = wishlist.dataValues.user_id === req.session.user_id
       res.render("list-details", wishlistHbsData)
     })
 })

@@ -1,28 +1,33 @@
-require('dotenv').config();
-const nodemailer = require('nodemailer');
-
-let transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL, //artembootcampapi@gmail.com
-    pass: process.env.PASSWORD //wsopdbfdlyovjviz
+const emailBtn = document.querySelector('#emailBtn')
+emailBtn.addEventListener('click', e => {
+  const emailObj = {
+    from: 'oogabooga@gmail.com',
+    to: 'tkmarsten@gmail.com',
+    subject: 'Wishlist',
+    text: 'Test email'
   }
-});
 
-//need to get fullURL
-let fullUrl = "n/a"
+  fetch('/api/mailer', {
+    method: 'POST',
+    body: JSON.stringify(emailObj),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res => {
+    if (res.ok) {
+      alert('Success')
+    } else {
+      alert('Stinky')
+    }
+  })
+})
 
-let mailOptions = {
-  from: sendingEmail,//sending email input
-  to: receivingEmail,// reciving email input 
-  subject: 'Wishlist',
-  html: "Check out this Wishlist: " + fullUrl
-};
+// //need to get fullURL
+// let fullUrl = "n/a"
 
-transporter.sendMail(mailOptions, function (error, info) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Email sent!');
-  }
-});
+// let mailOptions = {
+//   from: process.env.EMAIL,
+//   to: process.env.EMAIL,
+//   subject: 'Wishlist',
+//   text: 'Hello there'
+// }

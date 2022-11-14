@@ -20,6 +20,7 @@ router.get("/login", (req, res) => {
     user_id: null
   })
 })
+
 //profile page
 router.get("/profile", (req, res) => {
   if (!req.session.loggedIn) {
@@ -39,27 +40,29 @@ router.get("/profile", (req, res) => {
 })
 
 //random profile
-router.get("/random", (req,res) => {
-    const randomID = Math.floor(Math.random() * wishlistData.length)
-    console.log(randomID)
-  Wishlist.findByPk( randomID ,
-  {include: {all:true}}
-  ).then(listData=>{
-    const listDataHbsData = listData.get({plain:true});
+router.get("/random", async (req, res) => {
+
+  let randomID = null
+  do {
+    randomID = Math.floor(Math.random() * await Wishlist.count())
+  } while (randomID === null)
+  console.log(randomID)
+  Wishlist.findByPk(randomID,
+    { include: { all: true } }
+  ).then(listData => {
+    const listDataHbsData = listData.get({ plain: true });
     console.log(listDataHbsData)
-    res.render("list-details",listDataHbsData)
-})
+    res.render("list-details", listDataHbsData)
+  })
 })
 
 //all users
-router.get("/viewallusers", (req,res) => {
-  User.findAll(
-{include: [Wishlist]}
-).then(alluserData=>{
-  const alluserDataHbsData = alluserData.map(allusers=>allusers.get({plain:true}))
-  // console.log(alluserDataHbsData)
-  res.render("allusers",alluserDataHbsData)
-})
+router.get("/viewallusers", (req, res) => {
+  User.findAll().then(alluserData => {
+    const alluserDataHbsData = alluserData.map(allusers => allusers.get({ plain: true }))
+    console.log(alluserDataHbsData)
+    res.render("allusers", alluserDataHbsData)
+  })
 })
 
 module.exports = router
