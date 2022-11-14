@@ -1,5 +1,20 @@
-<h1>Find a Friend or Family Member</h1>
-<h2>All Users</h2>
+<h1>Member Directory</h1>
+
+{{! search for specific user }}
+<form id="searchUser" class="row my-3">
+  <div class="col-sm-10 input-group mb-2">
+    <div class="input-group-text"><i class="fa-solid fa-at"></i></div>
+    <input
+      type="text"
+      class="form-control"
+      id="searchUsername"
+      placeholder="search usernames"
+    />
+  </div>
+  <div class="col">
+    <button class="btn btn-outline-success" type="submit">search</button>
+  </div>
+</form>
 
 <div class="row row-cols-1 row-cols-md-4 g-4 mt-4">
   {{#each this}}
@@ -14,15 +29,4 @@
   {{/each}}
 </div>
 
-<h2>Find Someone</h2>
-{{! search for specific user }}
-<form action ="" id="searchUser">
-  <input
-    type="text"
-    name="searchUser"
-    id="searchUsername"
-    placeholder="Username"
-  />
-  <button>search</button>
-</form>
 <script src="/js/user.js"></script>

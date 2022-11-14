@@ -13,31 +13,31 @@ router.get('/', async (req, res) => {
   }
 })
 //one user by id
-router.get('/:id',(req,res)=>{
-  User.findByPk(req.params.id,{
-    include:[Wishlist]
-}).then(user=>{
-    const userHbsData = user.get({plain:true});
+router.get('/:id', (req, res) => {
+  User.findByPk(req.params.id, {
+    include: [Wishlist]
+  }).then(user => {
+    const userHbsData = user.get({ plain: true });
     console.log(user);
     console.log("==============")
     console.log(userHbsData)
-    res.render("user",userHbsData)
+    res.render("user", userHbsData)
+  })
 })
-})
+
 //one user by username
-router.get('/search/:username',(req,res)=>{
+router.get('/search/:username', (req, res) => {
   User.findOne({
-    where: {username:req.params.username},
-    include:[Wishlist]
-}).then(user=>{
-    const userNameHbsData = user.get({plain:true});
+    where: { username: req.params.username },
+    include: [Wishlist]
+  }).then(user => {
+    const userNameHbsData = user.get({ plain: true });
     console.log(user);
     console.log("==============")
     console.log(userNameHbsData)
-    res.render("user",userNameHbsData)
+    res.render("user", userNameHbsData)
+  })
 })
-})
-
 
 router.post('/', async (req, res) => {
   try {
