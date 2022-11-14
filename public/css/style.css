@@ -11,3 +11,87 @@ a:hover {
 .home-img {
   width: 75%;
 }
+
+/* #tooltip, #homeTooltip, #allTooltip, #logTooltip {
+  background: #333;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  display: none;
+}
+
+#tooltip[data-show], 
+#homeTooltip[data-show],
+#allTooltip[data-show], 
+#logTooltip[data-show] 
+{
+  display: block;
+}
+
+#arrow
+#arrow::before, 
+#homeArrow
+#homeArrow::before, 
+#allArrow
+#allArrow::before,
+#logArrow
+#logArrow::before 
+{
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+}
+
+#arrow, 
+#homeArrow, 
+#allArrow, 
+#logArrow 
+{
+  visibility: hidden;
+}
+
+#arrow::before, 
+#homeArrow::before,
+#allArrow::before, 
+#logArrow::before 
+ {
+  visibility: visible;
+  content: '';
+  transform: rotate(45deg);
+}
+
+#tooltip[data-popper-placement^='top'] > #arrow, 
+#homeTooltip[data-popper-placement^='top'] > #homeArrow,
+#allTooltip[data-popper-placement^='top'] > #allArrow,
+#logTooltip[data-popper-placement^='top'] > #logArrow 
+ {
+  bottom: -4px;
+}
+
+#tooltip[data-popper-placement^='bottom'] > #arrow, 
+#homeTooltip[data-popper-placement^='bottom'] > #homeArrow,
+#allTooltip[data-popper-placement^='bottom'] > #allArrow,
+#logTooltip[data-popper-placement^='bottom'] > #logArrow 
+ {
+  top: -4px;
+}
+
+#tooltip[data-popper-placement^='left'] > #arrow, 
+#homeTooltip[data-popper-placement^='left'] > #homeArrow,
+#allTooltip[data-popper-placement^='left'] > #allArrow,
+#logTooltip[data-popper-placement^='left'] > #logArrow 
+ {
+  right: -4px;
+}
+
+#tooltip[data-popper-placement^='right']> #arrow, 
+#homeTooltip[data-popper-placement^='right']> #homeArrow,
+#allTooltip[data-popper-placement^='right']> #allArrow,
+#logTooltip[data-popper-placement^='right']> #logArrow 
+ {
+  left: -4px;
+}
+ */

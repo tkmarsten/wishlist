@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/tootips.css">
 <h1>{{first_name}}'s Wishlists</h1>
 
 <button
@@ -19,11 +20,13 @@
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="wishlistModal">Add a new wishlist</h1>
         <button
+          id="listBtn" 
+          aria-describedby="tooltip"
           type="button"
           class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
-        ></button>
+        ><div id="listTooltip" role="tooltip">Add Wishlist <div id="listArrow" data-popper-arrow></div></div></button>
       </div>
       <div class="modal-body">
         <form id="addWishlist">
@@ -99,3 +102,5 @@
 </div>
 
 <script src="/js/profile.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="/js/tooltips.js"></script>

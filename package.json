@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/tkmarsten/wishlist#readme",
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",
