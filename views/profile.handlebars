@@ -70,16 +70,20 @@
           <input
             type="email"
             class="form-control mb-3"
-            id="sendingEmail"
-            placeholder="your email"
-          />
-          <input
-            type="email"
-            class="form-control mb-3"
             id="receivingEmail"
             placeholder="your friend's email"
           />
-          <button type="submit" class="btn btn-primary">Send wishlist</button>
+          <select class="form-select mb-3" aria-label="Default select example">
+            {{#each wishlists}}
+              <option value="{{id}}">{{name}}</option>
+            {{/each}}
+          </select>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="emailBtn"
+            data-userName="{{first_name}}"
+          >Send wishlist</button>
         </form>
       </div>
     </div>
@@ -99,3 +103,4 @@
 </div>
 
 <script src="/js/profile.js"></script>
+<script src="/js/nodemailer.js"></script>

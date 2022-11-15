@@ -1,10 +1,16 @@
 const emailBtn = document.querySelector('#emailBtn')
 emailBtn.addEventListener('click', e => {
+
+  console.log(e)
+  const receivingEmail = document.querySelector('#receivingEmail').value
+  const userName = document.getAttribute('data-userName')
+
   const emailObj = {
     from: 'oogabooga@gmail.com',
-    to: 'tkmarsten@gmail.com',
+    to: receivingEmail,
     subject: 'Wishlist',
-    text: 'Test email'
+    text: `${userName} has sent you their wishlist!
+    Check it out here: `
   }
 
   fetch('/api/mailer', {
