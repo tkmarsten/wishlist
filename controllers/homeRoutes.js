@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const { Wishlist, Item, User } = require('../models');
-const wishlistData = require('../seeds/wishlist.json')
 
 // GET homepage
 router.get('/', async (req, res) => {
@@ -27,11 +26,11 @@ router.get("/profile", (req, res) => {
   if (!req.session.loggedIn) {
     return res.redirect("/login")
   }
-
+  
   User.findByPk(req.session.user_id, {
     include: [Wishlist]
   })
-    .then(userData => {
+  .then(userData => {
       const hbsData = userData.toJSON()
       console.log(hbsData)
       hbsData.loggedIn = true
