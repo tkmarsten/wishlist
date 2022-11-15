@@ -3,7 +3,7 @@
 ## Intoduction
 As a user, our group wanted to be able to create a wihslist that wasnt limited to just one store/webpage. We developed a webpage where you are able to create your own account from where you create and edit your wishlists. The webpage alos gives your the option to search for other peopels wishlists aswell. This allows for other people to see your wishlist or your are able to share it via email.
 
-Webpage Link: https://team7-wishlist-app.herokuapp.com/ 
+Webpage Link: https://team7-wishlist-app.herokuapp.com/   
 Repo Link: https://github.com/tkmarsten/wishlist
 
 ## Functionality
@@ -24,19 +24,29 @@ Project requires to download the following packages via npm
 
 ## Curent Webpage
 ### Home Page 
-![alt text](/DemoImg/)
+![alt text](/DemoImg/home.png)
+
 
 ### Login/Sign-up Page 
-![alt text](/DemoImg/)
+![alt text](/DemoImg/login_signup.png) 
+
 
 ### Profile Page 
-![alt text](/DemoImg/)
+![alt text](/DemoImg/WIshlists.png)  
+
 
 ### Create Wishlist Page 
-![alt text](/DemoImg/)
+![alt text](/DemoImg/additem.png)  
+
+
+### Wishlist Items 
+![alt text](/DemoImg/wishlistitems.png)
+
 
 ### Search Page 
-![alt text](/DemoImg/)
+![alt text](/DemoImg/SearchUser.png)  
+
+
 
 
 ## Future Developments
