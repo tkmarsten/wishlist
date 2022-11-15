@@ -6,7 +6,8 @@
     class="btn"
     data-bs-toggle="modal"
     data-bs-target="#addModal"
-  ><i class="fa-solid fa-cart-plus fa-2x text-success"></i></button>
+  ><i class="fa-solid fa-cart-plus fa-2x text-success"></i>
+  <p>Add Item to List</p></button>
 
   <div
     class="modal fade"
@@ -65,7 +66,8 @@
     class="btn"
     data-bs-toggle="modal"
     data-bs-target="#editModal"
-  ><i class="fa-solid fa-gear fa-2x text-primary"></i></button>
+  ><i class="fa-solid fa-gear fa-2x text-primary"></i>
+  <p>Edit Wish List</p></button>
 
   <div
     class="modal fade"
@@ -102,7 +104,8 @@
 
   <button class="btn" id="delBtn" data-listId="{{id}}"><i
       class="fa-solid fa-trash fa-2x text-danger"
-    ></i></button>
+    ></i>
+    <p>Delete Wish List</p></button>
 {{/if}}
 
 
@@ -111,7 +114,7 @@
     <div class="col">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{name}}</h5>
+          <h5 class="card-title">I want... {{name}}</h5>
           <button type="button" class="btn btn-dark"><a
               href="{{link}}"
               target="_blank"
@@ -121,11 +124,13 @@
           <p class="priority">{{priority}}</p>
           <button class="delItemBtn btn" data-itemId="{{id}}"><i
               class="fa-solid fa-trash text-danger"
-            ></i></button>
+            ></i>
+            <p>Delete Item</p></button>
           <button class="editItemBtn btn" data-itemId="{{id}}" data-bs-toggle="modal"
           data-bs-target="#editItemModal"><i
           class="fas fa-pencil-alt text-success"
-          ></i></button>
+          ></i>
+          <p>Edit Item</p></button>
         </div>
       </div>
     </div>
