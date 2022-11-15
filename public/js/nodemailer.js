@@ -1,16 +1,19 @@
-const emailBtn = document.querySelector('#emailBtn')
-emailBtn.addEventListener('click', e => {
+const baseUrl = 'https://team7-wishlist-app.herokuapp.com/'
+
+const emailBtn = document.querySelector('#sendWishlist')
+emailBtn.addEventListener('submit', e => {
+  e.preventDefault()
 
   console.log(e)
   const receivingEmail = document.querySelector('#receivingEmail').value
-  const userName = document.getAttribute('data-userName')
+  const userName = document.querySelector('#emailBtn').getAttribute('data-userName')
+  const wishlistId = document.querySelector('#wishlistSelect').value
 
   const emailObj = {
     from: 'oogabooga@gmail.com',
     to: receivingEmail,
     subject: 'Wishlist',
-    text: `${userName} has sent you their wishlist!
-    Check it out here: `
+    text: userName + ' has sent you their wishlist! Check it out here: ' + baseUrl + 'api/wishlists/' + wishlistId
   }
 
   fetch('/api/mailer', {
@@ -27,13 +30,3 @@ emailBtn.addEventListener('click', e => {
     }
   })
 })
-
-// //need to get fullURL
-// let fullUrl = "n/a"
-
-// let mailOptions = {
-//   from: process.env.EMAIL,
-//   to: process.env.EMAIL,
-//   subject: 'Wishlist',
-//   text: 'Hello there'
-// }
