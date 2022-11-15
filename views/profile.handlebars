@@ -5,7 +5,10 @@
   class="btn"
   data-bs-toggle="modal"
   data-bs-target="#wishlistModal"
-><i class="fa-solid fa-file-circle-plus fa-2x"></i></button>
+><i class="fa-solid fa-file-circle-plus fa-2x">
+  </i>
+  <p>New Wish List</p>
+</button>
 
 <div
   class="modal fade"
@@ -45,7 +48,8 @@
   class="btn"
   data-bs-toggle="modal"
   data-bs-target="#mailModal"
-><i class="fa-solid fa-envelope fa-2x"></i></button>
+><i class="fa-solid fa-envelope fa-2x"></i>
+  <p>Send Wish List</p></button>
 
 <div
   class="modal fade"
@@ -70,16 +74,24 @@
           <input
             type="email"
             class="form-control mb-3"
-            id="sendingEmail"
-            placeholder="your email"
-          />
-          <input
-            type="email"
-            class="form-control mb-3"
             id="receivingEmail"
             placeholder="your friend's email"
           />
-          <button type="submit" class="btn btn-primary">Send wishlist</button>
+          <select
+            class="form-select mb-3"
+            aria-label="Default select example"
+            id="wishlistSelect"
+          >
+            {{#each wishlists}}
+              <option value="{{id}}">{{name}}</option>
+            {{/each}}
+          </select>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="emailBtn"
+            data-userName="{{first_name}}"
+          >Send wishlist</button>
         </form>
       </div>
     </div>
@@ -99,3 +111,4 @@
 </div>
 
 <script src="/js/profile.js"></script>
+<script src="/js/nodemailer.js"></script>

@@ -1,24 +1,13 @@
 <h1>Welcome to {{username}}'s Wish List Page</h1>
-{{#each wishlists}}
-  <div class="card">
-    <a href="/api/wishlists/{{id}}"><h3>{{name}}</h3></a>
-    <hr />
-  </div>
-{{/each}}
 
-<h2>Send wishlist!</h2>
-<form action="" id="sendwishlist">
-  <input
-    type="text"
-    name="sendingemail"
-    id="sendingemail"
-    placeholder="sendingemail"
-  />
-  <input
-    type="text"
-    name="recivingemail"
-    id="recivingemail"
-    placeholder="recivingemail"
-  />
-  <button>Send wishlist!</button>
-</form>
+<div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+  {{#each wishlists}}
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <a href="/api/wishlists/{{id}}"><h3>{{name}}</h3></a>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
