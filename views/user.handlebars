@@ -1,51 +1,5 @@
 <h1>Welcome to {{username}}'s Wish List Page</h1>
 
-<button
-  type="button"
-  class="btn"
-  data-bs-toggle="modal"
-  data-bs-target="#mailModal"
-><i class="fa-solid fa-envelope fa-2x"></i></button>
-
-<div
-  class="modal fade"
-  id="mailModal"
-  tabindex="-1"
-  aria-labelledby="mailModal"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="mailModal">Send your wishlist</h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form action="" id="sendWishlist">
-          <input
-            type="email"
-            class="form-control mb-3"
-            id="sendingEmail"
-            placeholder="your email"
-          />
-          <input
-            type="email"
-            class="form-control mb-3"
-            id="receivingEmail"
-            placeholder="your friend's email"
-          />
-          <button type="submit" class="btn btn-primary">Send wishlist</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
   {{#each wishlists}}
     <div class="col">
