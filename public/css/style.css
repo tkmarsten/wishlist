@@ -9,7 +9,7 @@ a:hover {
 }
 
 .home-img {
-  width: 75%;
+  max-height: 25%;
 }
 
 /* #tooltip, #homeTooltip, #allTooltip, #logTooltip {
