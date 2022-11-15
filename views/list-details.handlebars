@@ -6,7 +6,8 @@
     class="btn"
     data-bs-toggle="modal"
     data-bs-target="#addModal"
-  ><i class="fa-solid fa-cart-plus fa-2x text-success"></i></button>
+  ><i class="fa-solid fa-cart-plus fa-2x text-success"></i>
+  <p>Add Item</p></button>
 
   <div
     class="modal fade"
@@ -48,9 +49,9 @@
             />
             <label for="priorityLevel">Select priority level</label>
             <select class="form-select mb-3" id="priorityLevel">
-              <option value="low">low</option>
-              <option value="medium">medium</option>
-              <option value="high">high</option>
+              <option value="low">Priority: Low</option>
+              <option value="medium">Priority: Medium</option>
+              <option value="high">Priority: High</option>
             </select>
             <button type="submit" class="btn btn-primary">Add item</button>
           </form>
@@ -64,7 +65,8 @@
     class="btn"
     data-bs-toggle="modal"
     data-bs-target="#editModal"
-  ><i class="fa-solid fa-gear fa-2x text-primary"></i></button>
+  ><i class="fa-solid fa-gear fa-2x text-primary"></i>
+  <p>Change Wish List Name</p></button>
 
   <div
     class="modal fade"
@@ -101,7 +103,8 @@
 
   <button class="btn" id="delBtn" data-listId="{{id}}"><i
       class="fa-solid fa-trash fa-2x text-danger"
-    ></i></button>
+    ></i>
+    <p>Delete Wish List</p></button>
 {{/if}}
 
 <div class="row row-cols-1 row-cols-md-1 g-4 mt-4">
