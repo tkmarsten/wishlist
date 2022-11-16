@@ -59,6 +59,8 @@ addForm.addEventListener('submit', e => {
     }
   })
 })
+
+
 // update wishlist
 const editForm = document.querySelector("#editWishlist")
 editForm.addEventListener('submit', e => {
@@ -85,34 +87,42 @@ editForm.addEventListener('submit', e => {
   })
 })
 
-// update items
+let itemId = null
+let itemQuantity = null
+const itemCards = document.querySelector('#itemCards')
+itemCards.addEventListener('click', e => {
+  console.log(e.target.parentElement)
+  itemId = e.target.parentElement.getAttribute('data-itemId')
+  itemQuantity = e.target.parentElement.getAttribute('data-itemQuantity')
+})
 
+
+// update items
 const editItemForm = document.querySelector("#editItem")
-editItemForm.addEventListener('submit', e =>{
+editItemForm.addEventListener('submit', e => {
   e.preventDefault()
 
-  const id = editItemForm.getAttribute("data-itemId")
+  const formQuantity = document.querySelector('#editItemQuantity').value
 
   const itemObj = {
-      quantity: document.querySelector('#editItemQuantity').value,
-      priority: document.querySelector('#editPriorityLevel').value,
-      link: document.querySelector('#editItemLink').value,
+    quantity: formQuantity === "" ? itemQuantity : formQuantity,
+    priority: document.querySelector('#editPriorityLevel').value,
+    link: document.querySelector('#editItemLink').value,
   }
-  console.log(itemObj)
 
-    fetch(`/api/items/${id}`, {
-      method:'PUT',
-      body:JSON.stringify(itemObj),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }) .then(res => {
-      if(res.ok) {
-        location.reload()
-      } else {
-        alert('Error')
-      }
-    })
+  fetch(`/api/items/${itemId}`, {
+    method: 'PUT',
+    body: JSON.stringify(itemObj),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res => {
+    if (res.ok) {
+      location.reload()
+    } else {
+      alert('Error')
+    }
+  })
 })
 
 const delBtn = document.querySelector("#delBtn");
