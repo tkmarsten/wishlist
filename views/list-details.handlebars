@@ -1,189 +1,112 @@
 <h1>{{name}}</h1>
 
 {{#if validateUser}}
-  <button
-    type="button"
-    class="btn"
-    data-bs-toggle="modal"
-    data-bs-target="#addModal"
-  ><i class="fa-solid fa-cart-plus fa-2x text-success"></i>
-  <p>Add Item to List</p></button>
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addModal"><i
+    class="fa-solid fa-cart-plus fa-2x text-success"></i>
+  <p>Add Item to List</p>
+</button>
 
-  <div
-    class="modal fade"
-    id="addModal"
-    tabindex="-1"
-    aria-labelledby="addModal"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="addModal">Add a new item</h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <form id="addItem" data-listId="{{id}}">
-            <input
-              type="text"
-              class="form-control mb-3"
-              id="itemName"
-              placeholder="name"
-            />
-            <input
-              type="text"
-              class="form-control mb-3"
-              id="itemLink"
-              placeholder="link (can be empty)"
-            />
-            <input
-              type="number"
-              class="form-control mb-3"
-              id="itemQuantity"
-              placeholder="quantity"
-              min="1"
-            />
-            <label for="priorityLevel">Select priority level</label>
-            <select class="form-select mb-3" id="priorityLevel">
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-            <button type="submit" class="btn btn-primary">Add item</button>
-          </form>
-        </div>
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addModal">Add a new item</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="addItem" data-listId="{{id}}">
+          <input type="text" class="form-control mb-3" id="itemName" placeholder="name" />
+          <input type="text" class="form-control mb-3" id="itemLink" placeholder="link (can be empty)" />
+          <input type="number" class="form-control mb-3" id="itemQuantity" placeholder="quantity" min="1" />
+          <label for="priorityLevel">Select priority level</label>
+          <select class="form-select mb-3" id="priorityLevel">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Add item</button>
+        </form>
       </div>
     </div>
   </div>
+</div>
 
-  <button
-    type="button"
-    class="btn"
-    data-bs-toggle="modal"
-    data-bs-target="#editModal"
-  ><i class="fa-solid fa-gear fa-2x text-primary"></i>
-  <p>Edit Wish List</p></button>
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editModal"><i
+    class="fa-solid fa-gear fa-2x text-primary"></i>
+  <p>Edit Wish List</p>
+</button>
 
-  <div
-    class="modal fade"
-    id="editModal"
-    tabindex="-1"
-    aria-labelledby="editModal"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="editModal">Edit your wishlist</h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <form id="editWishlist" data-listId="{{id}}">
-            <input
-              type="text"
-              class="form-control mb-3"
-              id="editListName"
-              placeholder="name"
-            />
-            <button type="submit" class="btn btn-primary">Save</button>
-          </form>
-        </div>
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editModal">Edit your wishlist</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editWishlist" data-listId="{{id}}">
+          <input type="text" class="form-control mb-3" id="editListName" placeholder="name" />
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
       </div>
     </div>
   </div>
+</div>
 
-  <button class="btn" id="delBtn" data-listId="{{id}}"><i
-      class="fa-solid fa-trash fa-2x text-danger"
-    ></i>
-    <p>Delete Wish List</p></button>
+<button class="btn" id="delBtn" data-listId="{{id}}"><i class="fa-solid fa-trash fa-2x text-danger"></i>
+  <p>Delete Wish List</p>
+</button>
 {{/if}}
 
 
-<div class="row row-cols-1 row-cols-md-1 g-4 mt-4">
+<div class="row row-cols-1 row-cols-md-1 g-4 mt-4" id="itemCards">
   {{#each items}}
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">I want... {{name}}</h5>
-          <button type="button" class="btn btn-dark"><a
-              href="{{link}}"
-              target="_blank"
-              class="text-white"
-            >Product link</a></button>
-          <p>Quantity Wanted: {{quantity}}</p>
-          <p class="priority">{{priority}}</p>
-          <button class="delItemBtn btn" data-itemId="{{id}}"><i
-              class="fa-solid fa-trash text-danger"
-            ></i>
-            <p>Delete Item</p></button>
-          <button class="editItemBtn btn" data-itemId="{{id}}" data-bs-toggle="modal"
-          data-bs-target="#editItemModal"><i
-          class="fas fa-pencil-alt text-success"
-          ></i>
-          <p>Edit Item</p></button>
-        </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">I want... {{name}}</h5>
+        <button type="button" class="btn btn-dark"><a href="{{link}}" target="_blank" class="text-white">Product
+            link</a></button>
+        <p>Quantity Wanted: {{quantity}}</p>
+        <p class="priority">{{priority}}</p>
+        <button class="delItemBtn btn" data-itemId="{{id}}"><i class="fa-solid fa-trash text-danger"></i>
+          <p>Delete Item</p>
+        </button>
+        <button class="editItemBtn btn" data-itemId="{{id}}" data-itemQuantity="{{quantity}}" data-bs-toggle="modal" data-bs-target="#editItemModal">
+          <i class="fas fa-pencil-alt text-success"></i>
+          <p>Edit Item</p>
+        </button>
       </div>
     </div>
+  </div>
   {{/each}}
 </div>
 
-<div
-    class="modal fade"
-    id="editItemModal"
-    tabindex="-1"
-    aria-labelledby="editItemModal"
-    aria-hidden="true"
-  >
+<div class="modal fade" id="editItemModal" tabindex="-1" aria-labelledby="editItemModal" aria-hidden="true">
 
-<div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="editItemModal">Edit item</h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <form id="editItem" data-itemId="{{id}}">
-           
-            <input
-              type="text"
-              class="form-control mb-3"
-              id="editItemLink"
-              placeholder="link (can be empty)"
-            />
-            <input
-              type="number"
-              class="form-control mb-3"
-              id="editItemQuantity"
-              placeholder="quantity"
-              min="1"
-            />
-            <label for="editPriorityLevel">Select priority level</label>
-            <select class="form-select mb-3" id="editPriorityLevel">
-              <option value="low">low</option>
-              <option value="medium">medium</option>
-              <option value="high">high</option>
-            </select>
-            <button type="submit" id="update-btn"  class="btn btn-primary" data-item="{{id}}" >Update</button>
-          </form>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editItemModal">Edit item</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editItem" data-itemId="{{id}}">
+
+          <input type="text" class="form-control mb-3" id="editItemLink" placeholder="link (can be empty)" />
+          <input type="number" class="form-control mb-3" id="editItemQuantity" placeholder="quantity" min="1" />
+          <label for="editPriorityLevel">Select priority level</label>
+          <select class="form-select mb-3" id="editPriorityLevel">
+            <option value="low">low</option>
+            <option value="medium">medium</option>
+            <option value="high">high</option>
+          </select>
+          <button type="submit" id="update-btn" class="btn btn-primary" data-item="{{id}}">Update</button>
+        </form>
       </div>
     </div>
   </div>
-  </div>
+</div>
+</div>
 
 <script src="/js/wishlist.js"></script>
